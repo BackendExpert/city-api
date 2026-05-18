@@ -1,11 +1,18 @@
 import axios from "axios";
 
+const delay = (ms: number) =>
+    new Promise(resolve => setTimeout(resolve, ms));
+
 export default async function getCityBounds(city: string) {
-    const url = `https://nominatim.openstreetmap.org/search?q=${city},Sri Lanka&format=jsonv2`;
+
+    await delay(2000);
+
+    const url =
+        `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(city)},Sri Lanka&format=jsonv2&limit=1`;
 
     const response = await axios.get(url, {
         headers: {
-            "User-Agent": "sl-smart-city-api"
+            "User-Agent": "sl-smart-city-api/1.0"
         }
     });
 
@@ -16,7 +23,7 @@ export default async function getCityBounds(city: string) {
     const data = response.data[0];
 
     if (!data.boundingbox) {
-        throw new Error("Bounding box not available");
+        throw new Error(`Bounding box not available for ${city}`);
     }
 
     const bbox = data.boundingbox;

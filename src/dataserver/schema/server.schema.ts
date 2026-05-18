@@ -27,7 +27,7 @@ export class Hospital {
     @Prop({ required: true })
     osmId!: number;
 
-    @Prop({ required: true, enum: ["node", "way"] })
+    @Prop({ required: true, enum: ["node", "way", "relation"] })
     osmType!: string;
 
     @Prop({ required: true })
@@ -89,7 +89,7 @@ export class Police {
     @Prop({ required: true })
     osmId!: number;
 
-    @Prop({ required: true, enum: ["node", "way"] })
+    @Prop({ required: true,enum: ["node", "way", "relation"] })
     osmType!: string;
 
     @Prop()
@@ -120,7 +120,7 @@ export class FireStation {
     @Prop({ required: true })
     osmId!: number;
 
-    @Prop({ required: true, enum: ["node", "way"] })
+    @Prop({ required: true, enum: ["node", "way", "relation"] })
     osmType!: string;
 
     @Prop()
@@ -154,7 +154,7 @@ export class TransportStation {
     @Prop({ required: true })
     osmId!: number;
 
-    @Prop({ required: true, enum: ["node", "way"] })
+    @Prop({ required: true, enum: ["node", "way", "relation"]})
     osmType!: string;
 
     @Prop()
@@ -201,7 +201,7 @@ export class TouristAttraction {
     @Prop({ required: true })
     osmId!: number;
 
-    @Prop({ required: true, enum: ["node", "way"] })
+    @Prop({ required: true, enum: ["node", "way", "relation"] })
     osmType!: string;
 
     @Prop()
